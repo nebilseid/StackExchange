@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">StackExchange</string>
+    <string name="badges_count_title">Badges Count</string>
+    <string name="badge_label_bronze">Bronze : %1$s</string>
+    <string name="badge_label_gold">"Gold : %1$s"</string>
+    <string name="badge_label_silver">"Silver : %1$s"</string>
+    <string name="creation_date">"Creation Date : %1$s"</string>
+    <string name="age">"Age : %1$s"</string>
+    <string name="user_location">Location : %1$s</string>
+    <string name="user_datail_name">Name : %1$s</string>
+    <string name="user_detail_reputation">Reputation : %1$s</string>
+
 </resources>

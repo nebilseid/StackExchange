@@ -2,6 +2,7 @@ package com.example.stackexchange.ui.home
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stackexchange.R
 import com.example.stackexchange.model.Item
@@ -26,10 +27,18 @@ class UsersAdapter : RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
     override fun onBindViewHolder(viewHolder: UsersViewHolder, position: Int) {
         viewHolder.bind(data[position])
     }
+
     inner class UsersViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: Item) {
-            view.tv_name.text =  item.displayName
+            view.tv_name.text = item.displayName
             view.tv_user_reputation.text = item.reputation.toString()
+            view.setOnClickListener {
+                item.let {
+                    val directions =
+                        UsersHomeFragmentDirections.actionUsersHomeFragmentToUsersDetailFragment(it)
+                    view.findNavController().navigate(directions)
+                }
+            }
         }
     }
 }

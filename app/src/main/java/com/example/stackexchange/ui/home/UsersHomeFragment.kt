@@ -27,24 +27,28 @@ class UsersHomeFragment : Fragment(R.layout.fragment_home) {
 
         usersViewModel.loadingLiveData.observe(viewLifecycleOwner, { loading(it) })
         usersViewModel.errorLiveData.observe(viewLifecycleOwner, { showError(it) })
-        usersViewModel.jokesContentLiveData.observe(viewLifecycleOwner, { usersAdapter.setData(it) })
+        usersViewModel.jokesContentLiveData.observe(
+            viewLifecycleOwner,
+            { usersAdapter.setData(it) })
 
         usersViewModel.fetchJokes()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu,menu)
+        inflater.inflate(R.menu.menu, menu)
 
         val searchItem = menu.findItem(R.id.action_search)
         val searchView = searchItem.actionView as SearchView
 
-        searchView.setOnQueryTextListener(object :  SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                TODO("Not yet implemented")
+                query?.let { usersViewModel.searchUsers(it) }
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                TODO("Not yet implemented")
+                // newText?.let { usersViewModel.searchUsers(it) }
+                return false
             }
 
         })

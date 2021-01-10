@@ -33,6 +33,21 @@ class UsersViewModel(private val repository: StackExchangeRepository) : ViewMode
         )
     }
 
+
+    fun searchUsers(name: String) {
+        disposable.add(
+            repository.searchUsers(name)
+                .subscribeOn(AppSchedulers.io)
+                .observeOn(AppSchedulers.ui)
+                .doOnSubscribe { _loadingLiveData.value = true }
+                .doOnEvent { _, _ -> _loadingLiveData.value = false }
+                .subscribe(
+                    { _usersContentLiveData.value = it.items },
+                    { handleError(it) }
+                )
+        )
+    }
+
     override fun onCleared() {
         disposable.clear()
         super.onCleared()

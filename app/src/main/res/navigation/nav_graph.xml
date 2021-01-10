@@ -6,5 +6,17 @@
     <fragment
         android:id="@+id/usersHomeFragment"
         android:name="com.example.stackexchange.ui.home.UsersHomeFragment"
-        android:label="UsersHomeFragment" />
+        android:label="Stack Exchange">
+        <action
+            android:id="@+id/action_usersHomeFragment_to_usersDetailFragment"
+            app:destination="@id/usersDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersDetailFragment"
+        android:name="com.example.stackexchange.ui.usersDetail.UsersDetailFragment"
+        android:label="User">
+        <argument
+            android:name="userItem"
+            app:argType="com.example.stackexchange.model.Item" />
+    </fragment>
 </navigation>

@@ -3,6 +3,7 @@ package com.example.stackexchange.model
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
+import java.text.DateFormat
 
 @Parcelize
 data class DataStackExchange(
@@ -33,7 +34,7 @@ data class Item(
     @SerializedName("link")
     val link: String,
     @SerializedName("location")
-    val location: String,
+    val location: String?,
     @SerializedName("profile_image")
     val profileImage: String,
     @SerializedName("reputation")
@@ -54,8 +55,10 @@ data class Item(
     val userType: String,
     @SerializedName("website_url")
     val websiteUrl: String
-) : Parcelable
-
+) : Parcelable {
+    val formattedCreationDate: String
+        get() = DateFormat.getDateInstance().format(creationDate)
+}
 
 @Parcelize
 data class BadgeCounts(
