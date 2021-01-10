@@ -15,9 +15,10 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
         release {
@@ -85,7 +86,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // Jetpack Compose Integration
-    implementation "androidx.navigation:navigation-compose:1.0.0-alpha04"
+  //  implementation "androidx.navigation:navigation-compose:1.0.0-alpha04"
 
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation "androidx.multidex:multidex:2.0.1"
 }

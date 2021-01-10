@@ -3,6 +3,7 @@ package com.example.stackexchange
 import android.app.Application
 import com.example.stackexchange.di.networkModule
 import com.example.stackexchange.di.repo
+import com.example.stackexchange.di.viewModels
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
