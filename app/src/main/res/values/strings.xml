@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StackExchange</string>
+    <string name="app_name">Stack Exchange</string>
     <string name="badges_count_title">Badges Count</string>
     <string name="badge_label_bronze">Bronze : %1$s</string>
     <string name="badge_label_gold">"Gold : %1$s"</string>
